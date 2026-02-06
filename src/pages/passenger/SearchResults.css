@@ -1,0 +1,131 @@
+.results-page {
+  background: #f4f6f8;
+  min-height: 100vh;
+}
+
+/* Route header */
+.route-header {
+  background: white;
+  padding: 15px 30px;
+  border-bottom: 1px solid #ddd;
+}
+
+.route-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.route-header span {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Layout */
+.results-layout {
+  display: flex;
+  gap: 20px;
+  padding: 20px 30px;
+}
+
+/* Results section */
+.results {
+  flex: 1;
+}
+
+/* Bus Card */
+.bus-card {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Left */
+.bus-left h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.bus-type {
+  font-size: 13px;
+  color: #555;
+}
+
+/* Amenities */
+.amenities span {
+  display: inline-block;
+  background: #eef2ff;
+  color: #3730a3;
+  padding: 3px 8px;
+  font-size: 11px;
+  border-radius: 6px;
+  margin-right: 5px;
+}
+
+/* Center */
+.bus-center {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.arrow {
+  font-size: 18px;
+}
+
+/* Right */
+.bus-right {
+  text-align: right;
+}
+
+.bus-right h3 {
+  margin: 0;
+  color: #d84e55;
+}
+
+.bus-right p {
+  font-size: 12px;
+  color: #555;
+}
+
+/* Button */
+.view-seats {
+  margin-top: 8px;
+  padding: 8px 14px;
+  background: #d84e55;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* States */
+.loading,
+.no-results {
+  text-align: center;
+  padding: 30px;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .results-layout {
+    flex-direction: column;
+  }
+
+  .bus-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .bus-right {
+    width: 100%;
+    text-align: left;
+  }
+}

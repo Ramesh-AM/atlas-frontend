@@ -1,0 +1,35 @@
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.seat-row {
+  display: flex;
+  gap: 8px;
+}
+
+.seat {
+  width: 45px;
+  height: 45px;
+  border-radius: 6px;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.seat.booked {
+  background: #ff4d4f;
+  cursor: not-allowed;
+}
+
+.seat.locked {
+  background: #faad14;
+  cursor: not-allowed;
+}
+
+.seat.selected {
+  background: #52c41a;
+}

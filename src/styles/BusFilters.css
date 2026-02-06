@@ -1,0 +1,30 @@
+.filters {
+  background: white;
+  padding: 15px;
+  width: 240px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-section h4 {
+  margin-bottom: 10px;
+}
+
+.filter-section label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.reset-btn {
+  width: 100%;
+  background: #f3f4f6;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}

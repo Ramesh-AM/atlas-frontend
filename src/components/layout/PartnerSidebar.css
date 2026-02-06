@@ -1,0 +1,65 @@
+/* Sidebar container */
+.sidebar {
+  width: 230px;
+  height: 100vh;
+  background: #1f2937; /* dark slate */
+  color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px 15px;
+  box-sizing: border-box;
+}
+
+/* Sidebar title */
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #d1d5db;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Navigation links */
+.sidebar a {
+  display: block;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  color: #d1d5db;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Hover effect */
+.sidebar a:hover {
+  background: #374151;
+  color: #fff;
+}
+
+/* Active link */
+.sidebar a.active {
+  background: #d84e55; /* RedBus red */
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Content spacing fix */
+.partner-layout main {
+  margin-left: 230px;
+  padding: 25px;
+  background: #f4f6f8;
+  min-height: 100vh;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 180px;
+  }
+
+  .partner-layout main {
+    margin-left: 180px;
+  }
+}

@@ -1,0 +1,13 @@
+.topbar {
+  height: 60px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.topbar .actions button {
+  margin-left: 10px;
+}

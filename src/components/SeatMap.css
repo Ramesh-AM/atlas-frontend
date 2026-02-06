@@ -1,0 +1,72 @@
+.seat-map {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* Rows */
+.seat-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Aisle */
+.aisle {
+  width: 30px;
+}
+
+/* Seat Base */
+.seat {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid #999;
+  border-radius: 6px;
+  margin: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  cursor: pointer;
+  background: #f9fafb;
+  transition: all 0.2s;
+}
+
+/* Sleeper */
+.sleeper {
+  width: 70px;
+  height: 35px;
+}
+
+/* States */
+.seat:hover {
+  border-color: #d84e55;
+}
+
+.seat.selected {
+  background: #d84e55;
+  color: white;
+  border-color: #d84e55;
+}
+
+.seat.booked {
+  background: #ccc;
+  cursor: not-allowed;
+  color: #666;
+}
+
+.seat.locked {
+  background: #fde68a;
+  cursor: not-allowed;
+}
+
+/* Deck */
+.deck {
+  margin-bottom: 30px;
+}
+
+.deck h4 {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #444;
+}

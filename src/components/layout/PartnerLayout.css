@@ -1,0 +1,108 @@
+/* Root layout container */
+.partner-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f6f8;
+}
+
+/* Main content area */
+.partner-layout main {
+  margin-left: 230px; /* matches sidebar width */
+  padding: 24px 28px;
+  width: calc(100% - 230px);
+  background: #f4f6f8;
+  box-sizing: border-box;
+}
+
+/* Page headers */
+.partner-layout h1 {
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+.partner-layout h2 {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* Dashboard cards */
+.partner-layout .card {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  margin-bottom: 20px;
+}
+
+/* Grid layout for stats */
+.partner-layout .stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Tables */
+.partner-layout table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.partner-layout th,
+.partner-layout td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.partner-layout th {
+  background: #f9fafb;
+  text-align: left;
+}
+
+/* Buttons */
+.partner-layout button {
+  background: #d84e55;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.partner-layout button:hover {
+  opacity: 0.9;
+}
+
+/* Forms */
+.partner-layout input,
+.partner-layout select {
+  padding: 8px 10px;
+  margin-bottom: 12px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .partner-layout main {
+    margin-left: 180px;
+    width: calc(100% - 180px);
+  }
+}
+
+@media (max-width: 640px) {
+  .partner-layout {
+    flex-direction: column;
+  }
+
+  .partner-layout main {
+    margin-left: 0;
+    width: 100%;
+    padding: 16px;
+  }
+}
