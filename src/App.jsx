@@ -2,35 +2,36 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { useEffect, useState } from 'react'
 import './App.css'
 
-import AdminDashboard from './pages/admin/AdminDashboard'
+// Auth
 import Login from './pages/auth/Login'
 import Register from './pages/auth/Register'
-import AdminUsers from './pages/admin/AdminUsers'
-import AdminBuses from './pages/admin/AdminBuses'
-// import NotFound from './pages/NotFound'
 
+// Passenger
 import Home from './pages/passenger/Home'
-
-import SearchBuses from './pages/passenger/SearchBuses'
+import SearchResults from './pages/passenger/SearchResults'
 import SeatSelection from './pages/passenger/SeatSelection'
 import MyBookings from './pages/passenger/MyBookings'
 import LiveTracking from './pages/passenger/LiveTracking'
-import SearchResults from './pages/passenger/SearchResults'
 
-// import DriverTrips from './pages/driver/DriverTrips'
-// import DriverTripDetail from './pages/driver/DriverTripDetail'
+// Admin
+import AdminDashboard from './pages/admin/AdminDashboard'
+import AdminUsers from './pages/admin/AdminUsers'
+import AdminBuses from './pages/admin/AdminBuses'
 
-// import AdminDashboard from './pages/admin/AdminDashboard'
-// import LiveOperations from './pages/admin/LiveOperations'
-
+// Partner
+import PartnerLayout from './components/layout/PartnerLayout'
 import PartnerDashboard from './pages/partner/PartnerDashboard'
-import AssignDriver from './pages/partner/AssignDriver'
+import PartnerBuses from './pages/partner/PartnerBuses'
+import PartnerRoutes from './pages/partner/PartnerRoutes'
+import PartnerTrips from './pages/partner/PartnerTrips'
+import PartnerDrivers from './pages/partner/PartnerDrivers'
 
-const getAuth = () => {
-  const token = localStorage.getItem('token')
-  const role = localStorage.getItem('role')
-  return { token, role }
-}
+/* ---------------- AUTH ---------------- */
+
+const getAuth = () => ({
+  token: localStorage.getItem('token'),
+  role: localStorage.getItem('role')
+})
 
 const ProtectedRoute = ({ children, role }) => {
   const auth = getAuth()
@@ -39,35 +40,26 @@ const ProtectedRoute = ({ children, role }) => {
   return children
 }
 
-function App() {
+/* ---------------- APP ---------------- */
+
+export default function App() {
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    setLoading(false)
-  }, [])
+  useEffect(() => setLoading(false), [])
 
   if (loading) return <div>Loading Atlas...</div>
 
   return (
     <Router>
       <Routes>
+
+        {/* Public */}
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-
-        <Route path="/" 
-          element={<Home />} 
-        />
-
         <Route path="/search-results" element={<SearchResults />} />
 
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute role="USER">
-              <SearchBuses />
-            </ProtectedRoute>
-          }
-        />
+        {/* Passenger */}
         <Route
           path="/seats/:tripId"
           element={
@@ -76,6 +68,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/bookings"
           element={
@@ -84,6 +77,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/track/:tripId"
           element={
@@ -93,73 +87,52 @@ function App() {
           }
         />
 
-        {/* <Route
-          path="/driver/trips"
-          element={
-            <ProtectedRoute role="DRIVER">
-              <DriverTrips />
-            </ProtectedRoute>
-          }
-        />
+        {/* Admin */}
         <Route
-          path="/driver/trip/:tripId"
-          element={
-            <ProtectedRoute role="DRIVER">
-              <DriverTripDetail />
-            </ProtectedRoute>
-          }
-        /> */}
-
-        <Route
-          path="/admin"
+          path="/admin/dashboard"
           element={
             <ProtectedRoute role="ADMIN">
               <AdminDashboard />
             </ProtectedRoute>
           }
         />
-        
-        <Route path="/partner" element={
-          <ProtectedRoute role="PARTNER">
-            <PartnerDashboard />
-          </ProtectedRoute>
-        } />
-        <Route path="trips/:tripId/assign-driver" element={
-          <ProtectedRoute role="PARTNER">
-            <AssignDriver />
-          </ProtectedRoute>
-        } />
 
-        <Route 
-          path="/admin/users" 
+        <Route
+          path="/admin/users"
           element={
             <ProtectedRoute role="ADMIN">
               <AdminUsers />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/admin/buses" 
+
+        <Route
+          path="/admin/buses"
           element={
             <ProtectedRoute role="ADMIN">
               <AdminBuses />
             </ProtectedRoute>
-          } 
+          }
         />
-        {/* <Route
-          path="/admin/live"
+
+        {/* Partner (NESTED + LAYOUT) */}
+        <Route
+          path="/partner"
           element={
-            <ProtectedRoute role="ADMIN">
-              <LiveOperations />
+            <ProtectedRoute role="PARTNER">
+              <PartnerLayout />
             </ProtectedRoute>
           }
-        /> */}
-
-        {/* <Route path="*" element={<NotFound />} /> */}
+        >
+          <Route index element={<PartnerDashboard />} />
+          <Route path="dashboard" element={<PartnerDashboard />} />
+          <Route path="buses" element={<PartnerBuses />} />
+          <Route path="routes" element={<PartnerRoutes />} />
+          <Route path="trips" element={<PartnerTrips />} />
+          <Route path="drivers" element={<PartnerDrivers />} />
+        </Route>
 
       </Routes>
     </Router>
   )
 }
-
-export default App

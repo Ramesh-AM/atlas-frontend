@@ -16,12 +16,12 @@ export default function Login() {
       const data = await loginUser({ email, password })
 
       localStorage.setItem('token', data.token)
-      localStorage.setItem('role', data.role)
+      localStorage.setItem('role', data.userData.role)
 
-      if (data.role === 'ADMIN') navigate('/admin')
-      else if (data.role === 'DRIVER') navigate('/driver/trips')
-      else if (data.role === 'PASSENGER') navigate('/')
-      else if (data.role === 'PARTNER') navigate('/partner')
+      if (data.userData.role === 'ADMIN') navigate('/admin')
+      else if (data.userData.role === 'DRIVER') navigate('/driver/trips')
+      else if (data.userData.role === 'PASSENGER') navigate('/')
+      else if (data.userData.role === 'PARTNER') navigate('/partner')
       else navigate('/')
     } catch (err) {
       console.error(err)

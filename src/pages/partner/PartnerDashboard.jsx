@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import PartnerLayout from "../../components/layout/PartnerLayout"
-import api from '../../utils/api'
+//import api from '../../utils/api'
 
 export default function PartnerDashboard() {
   const [data, setData] = useState({ total: 0, count: 0 })
 
-  useEffect(() => {
-    api.get('/partner/earnings').then(res => setData(res.data))
-  }, [])
+  // useEffect(() => {
+  //   api.get('/partner/earnings').then(res => setData(res.data))
+  // }, [])
   return (
     <PartnerLayout>
       <h1>Welcome, Operator</h1>

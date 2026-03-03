@@ -7,7 +7,7 @@ export default function Sidebar({collapsed}) {
       <h2 className="logo">ATLAS</h2>
 
       <nav>
-        <NavLink to="/admin">Dashboard</NavLink>
+        <NavLink to="/admin/dashboard">Dashboard</NavLink>
         <NavLink to="/admin/live">Live Operations</NavLink>
         <NavLink to="/admin/users">Users</NavLink>
         <NavLink to="/admin/buses">Buses</NavLink>

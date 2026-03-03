@@ -5,7 +5,7 @@ export default function AdminTrips() {
   const [trips, setTrips] = useState([])
 
   useEffect(() => {
-    api.get('/admin/trips').then(res => setTrips(res.data))
+    api.get('/admin/trips/pending').then(res => setTrips(res.data))
   }, [])
 
   const approve = async (id) => {

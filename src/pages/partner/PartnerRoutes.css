@@ -1,0 +1,54 @@
+.route-card {
+  background: white;
+  padding: 14px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.status.active {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status.inactive {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.actions button {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.actions .danger {
+  background: #d32f2f;
+  color: white;
+}
+
+.partner-routes h2 {
+  margin-bottom: 16px;
+  color: #000;
+}
+
+.add-route-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  margin-left: 250px;
+}
